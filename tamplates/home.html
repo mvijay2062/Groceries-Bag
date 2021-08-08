@@ -1,0 +1,39 @@
+<html>
+{% load static %}
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Home</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    </head>
+    <body>
+        <div class="container mt-5">
+            <!-- top -->
+            <div class="row pt-5">
+                <div class="col-lg-6">
+                    <h1>Welcome to <span style="color: green">GROCERY</span> <span style="color: orange" >BAG</span></h1>
+                </div>
+            </div>
+            <!-- // top -->
+            <!-- top -->
+            <div class="row mt-4">
+                <div class="col-xm-6 m-2 ml-3">
+                    <input type="submit" class="btn btn-info" onclick="window.location.href = '/login'" value="Login">
+                </div>
+                <div class="col-xm-6 m-2">
+                    <input type="submit" class="btn btn-info" onclick="window.location.href = '/register'" value="Sign Up">
+                </div>
+            </div>
+            <!-- // top -->
+            <div class="row mt-4 pd-6">
+            	<div class="col-xm-6 m-2 ml-3">
+                    <h5>this project is made by mohit singhal</h5>
+            			<p>Contact: 8209331361</p>
+            			<p>Email: me180003033@iiti.ac.in</p>
+
+                </div>
+            </div>
+            <!-- // top -->
+        </div>
+    </body>
+</html>

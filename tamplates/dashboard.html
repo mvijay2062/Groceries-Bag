@@ -1,0 +1,74 @@
+<html>
+{% load static %}
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    </head>
+    <body>
+        <div class="container mt-5">
+            <!-- top -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1>View Grocery List</h1>
+                </div>
+                
+            </div>
+            <!-- // top -->
+                        <!-- top -->
+            {% if user.is_authenticated %}
+            <div class="row mt-4">
+                <div class="col-lg-6">
+                    <h3 style="color:green">Hello, {{user.first_name}}!!</h3>
+                    <h5 style="color:green">{{user.email}}</h5>
+                </div>
+            </div>
+            {% endif %}
+            <!-- // top -->
+                        <!-- top -->
+            <div class="row mt-4">
+                <div class="col-xm-6 m-2 ml-3">
+                    <input type="submit" class="btn btn-Success" onclick="window.location.href = 'add'" value="Add Items">
+                </div>
+                <div class="col-xm-6 m-2">
+                    <input type="submit" class="btn btn-danger" onclick="window.location.href = 'logout'" value="Logout">
+                </div>
+            </div>
+            <!-- // top -->
+            <!-- Grocery Cards -->
+            <div class="row mt-4">
+                <!--- -->
+                {% for item in items %}
+                <!-- Loop This -->
+                <div class="col-lg-4 mt-4">
+                    <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">{{item.name}}</h5>
+                          <h6 class="card-subtitle mb-2 text-dark">{{item.quantity}}</h6>
+                          <p class="text-dark">{{item.status}}</p>
+                           <p class="text-info">{{item.date_created}}</p>
+                            <div class="row mt-4">
+                                <div class="col-xm-6 m-2 ml-3">
+                                    <input type="submit" onclick="window.location.href = '{%url 'update_data' item.id %}'" class="btn btn-info" value="Update">
+                                </div>
+                                <form method="post" action="{%url 'delete_data' item.id %}">
+                                    {% csrf_token %}
+                                <div class="col-xm-6 m-2">
+                                    <input type="submit" class="btn btn-warning" value="Delete">
+                                </div>
+                            </form>
+                            </div>
+
+                        </div>
+                      </div>
+                </div>
+                {% endfor %}
+                <!-- // Loop -->
+                
+                
+
+            </div>
+        </div>
+    </body>
+</html>

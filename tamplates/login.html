@@ -1,0 +1,34 @@
+<html>
+{% load static %}
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Login</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h1>Sign-in Yourself !!</h1>
+            <div>
+                {% for message in messages %}
+                <h5 style="color:red">{{message}}</h5>
+                {% endfor %}
+            </div>
+            <form method="post" action="">
+            {% csrf_token %}
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Username"/>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="text" class="form-control" name="password" placeholder="Password"/>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-danger">
+                </div>
+            </form>
+            <h5 style="color:black">Don't have an account? <a href="/register" style="text-decoration:none;color:blue">Register</a></h5>
+        </div>
+    </body> 
+</html>

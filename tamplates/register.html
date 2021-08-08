@@ -1,0 +1,50 @@
+<html>
+{% load static %}
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Register</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h1>Register Yourself !!</h1>
+            <div>
+                {% for message in messages %}
+                <h5 style="color:red">{{message}}</h5>
+                {% endfor %}
+            </div>
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="first_name" class="form-control" placeholder="First Name"/>
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" name="last_name" class="form-control" placeholder="Last Name"/>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control" name="email" placeholder="Email"/>
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Username"/>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="text" class="form-control" name="password" placeholder="Password"/>
+                </div>
+                <div class="form-group">
+                    <label>confirm Password</label>
+                    <input type="text" class="form-control" name="confirm_password" placeholder="confirm Password"/>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Sign up" class="btn btn-danger">
+                </div>
+            </form>
+            <h5 style="color:black">Already  have an account? <a href="/login" style="text-decoration:none;color:blue">Login</a></h5>
+        </div>
+    </body> 
+</html>
